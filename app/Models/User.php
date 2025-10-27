@@ -44,4 +44,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function tipo(){
+        return $this->belongsTo(Tipo::class, 'tipos_id');
+    }
+
+    public function materiasXUsuarios(){
+        return $this->hasMany(MateriasXUsuario::class, 'users_id');
+    }
+
+    public function materias (){
+        return $this->belongsToMany(Materia::class, 'materias_x_usuarios', 'users_id', 'materias_id');
+    }
 }

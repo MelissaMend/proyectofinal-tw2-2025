@@ -44,7 +44,7 @@
                             <h3 class="fw-bold text-primary">Iniciar Sesión</h3>
                             <p class="text-muted">Ingresa tus credenciales para acceder</p>
                         </div>
-                        <form id="frmAcceso" method="post" action="{{ route('login') }}">
+                        <form id="frmAcceso" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-semibold">
@@ -66,12 +66,18 @@
                                 <label for="password" class="form-label fw-semibold">
                                     <i class="bi bi-lock text-primary"></i>Contraseña
                                 </label>
-                                <input type="password"
-                                    class="form-control form-control-lg @error('password') is-invalid @enderror"
-                                    id="password"
-                                    name="password"
-                                    placeholder="Ingresa tu contraseña"
-                                    required>
+                                <div class="input-group">
+                                    <input type="password"
+                                        class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Ingresa tu contraseña"
+                                        required>
+                                    <button class="btn btn-outline-secondary" type="button" id="tooglePassword">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                               
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -115,6 +121,21 @@
 @endpush
 
 @push('JSOR')
+$('#tooglePassword').on("click", function(){
+    const passwordField = $("#password");
+    const passwordFieldType = passwordField.attr("type"); 
+    const toogleIcon = $(this).find('i');
+
+    if( passwordFieldType === "password" ){
+        passwordField.attr("type", "text");
+        toogleIcon.removeClass("bi-eye").addClass("bi-eye-slash");
+    }
+    else{
+        passwordField.attr("type", "password");
+        toogleIcon.removeClass("bi-eye-slash").addClass("bi-eye");
+    }
+});
+
 $('#frmAcceso').on("submit", function(e){
     e.preventDefault();
     cambiarEstadoBoton(true);
@@ -155,6 +176,7 @@ $('#frmAcceso').on("submit", function(e){
                     confirmButtonText: "Aceptar "
             });
         }
+    }
     });
 });
 @endpush
