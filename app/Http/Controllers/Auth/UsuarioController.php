@@ -33,7 +33,7 @@ class UsuarioController extends Controller
         else {
             abort(403, 'No tienes permisos para acceder a esta sección.');
         }
-        return view('usuarios.index', compact('tipos'));
+        return view('usuarios.index', compact('usuarios'));
     }
 
     public function create(){
@@ -104,7 +104,7 @@ class UsuarioController extends Controller
     }
 
     public function edit($id){
-        $usuarios = User::findOrFail($id);
+        $usuario = User::findOrFail($id);
         $tipos = Tipo::all();
         return view('usuarios.edit', compact('usuario', 'tipos'));
     }

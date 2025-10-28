@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AccesoController;
 use App\Http\Controllers\Auth\UsuarioController;
+use App\Http\Controllers\TipoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,6 @@ Route::post('/logout', [AccesoController::class, 'cerrarSesion'])->name('logout'
 
 Route::middleware('auth')->group(function(){
     Route::resource('usuarios', UsuarioController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::resource('tipos', TipoController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 });
