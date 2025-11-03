@@ -60,7 +60,7 @@
                         <!-- Materias (Admin y profesores) -->
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('materias.*') ? 'active' : '' }}" 
-                               href="#">
+                               href="{{ route('materias.index') }}">
                                 <i class="bi bi-book-fill me-1"></i>
                                 Materias
                             </a>

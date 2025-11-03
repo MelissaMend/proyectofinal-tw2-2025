@@ -126,6 +126,12 @@ class TipoController extends Controller
     public function destroy($id){
          try{
             $tipo = Tipo::findOrFail($id);
+
+            if ( $tipo->users()->count() > 0 ) {
+                return redirect()
+                ->route('tipos.index')
+                ->with ('error', 'No se puede eliminar el tipo porque tienes usuarios asignados');
+            }
             $tipo->delete();
 
             return redirect()
