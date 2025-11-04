@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\AccesoController;
 use App\Http\Controllers\Auth\UsuarioController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\MateriasXUsuarioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +35,10 @@ Route::middleware('auth')->group(function(){
     Route::resource('tipos', TipoController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 
     Route::resource('materias', MateriaController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::get('materiasxusuario/{id}', [MateriasXUsuarioController::class, 'index'])->name('materiasxusuario.index'); //datos que se pasan en la ruta
+    Route::post('materiasxusuario/{id}/asignar', [MateriasXUsuarioController::class, 'asignar'])->name('materiasxusuario.asignar'); //datos que se pasan encriptados en formulario
+    Route::delete('materiasxusuario/{asignacion_id}/desasignar', [MateriasXUsuarioController::class, 'desasignar'])->name('materiasxusuario.desasignar');
+    //metodo que permite ejecutar la desasignacion es delete, el metodo que lo ejecuta es desasignar
 });
+
