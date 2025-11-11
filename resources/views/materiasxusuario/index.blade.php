@@ -68,7 +68,7 @@
                                         <div class="btn-group" role="group">
                                             <!-- Botón Agregar Calificación -->
                                             <button type="button" class="btn btn-sm btn-outline-success" 
-                                                    onclick="agregarCalificacion({{ $usuario->id, $asignacion->materia->id }})"
+                                                    onclick="agregarCalificacion({{ $usuario->id }}, {{ $asignacion->materia->id }})"
                                                     title="Agregar calificación">
                                                 <i class="bi bi-plus-square"></i>
                                             </button>
@@ -156,7 +156,7 @@
 <script>
     function agregarCalificacion(usuarioId, materiaId){
         // Redirigir a la página de edición
-        //window.location.href = `{{ route('usuarios.index') }}/${id}/edit`;
+        window.location.href = `{{ url('materiasxusuario') }}/${usuarioId}/materia/${materiaId}/calificaciones`;
     }
     
     function eliminarMateria(asignacionId, nombreMateria){

@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
-use App\Models\MateriasXUsuario;
 use App\Models\Materia;
+use App\Models\MateriasXUsuario;
 use App\Models\Calificacion;
 
 class MateriasXUsuarioController extends Controller
@@ -21,7 +21,7 @@ class MateriasXUsuarioController extends Controller
         foreach( $materiasAsignadas as $asignacion ){
             $promedio = $asignacion->calificaciones->avg('calificaciones');
             $asignacion->promedio = $promedio ? round( $promedio, 2 ) : 0;
-        } 
+        }
         $materiasAsignadasIds = $materiasAsignadas->pluck('materias_id')->toArray();
         $materiasDisponibles = Materia::whereNotIn('id', $materiasAsignadasIds)->get();
 
