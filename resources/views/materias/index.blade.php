@@ -34,8 +34,8 @@
                         <table class="table table-striped table-hover" id="tablaMaterias">
                             <thead class="table-primary">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
+                                    <th>ID de materia</th>
+                                    <th>Nombre de materia</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
