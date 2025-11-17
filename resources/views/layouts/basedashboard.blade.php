@@ -122,7 +122,7 @@
         <div class="container">
             <p class="mb-0">
                 <i class="bi bi-code-slash me-1"></i>
-                Desarrollado por <strong>kmoransv</strong> en <strong>UNICAES</strong>
+                Desarrollado por <strong>Melissa Méndez</strong> en <strong>UNICAES</strong>
             </p>
             <small class="text-muted">© {{ date('Y') }} - Todos los derechos reservados</small>
         </div>
