@@ -35,9 +35,9 @@
                         <table class="table table-striped table-hover" id="tablaUsuarios">
                             <thead class="table-primary">
                                 <tr>
-                                    <th>ID</th>
+                                    <th>ID de Usuario</th>
                                     <th>Username</th>
-                                    <th>Email</th>
+                                    <th>Correo Electrónico</th>
                                     <th>Tipo</th>
                                     <th>Acciones</th>
                                 </tr>
